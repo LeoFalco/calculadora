@@ -7,13 +7,17 @@
     <script>
         var memoria = 0;
 
+        var somar = 1,
+        subtrair = 2,
+        multiplicar = 3,
+        dividir = 4;
+
         function addVisor(num) {
 
             var visor = document.getElementById("visor");
 
             visor.value += num;
         }
-
 
         function enter(){
 
@@ -22,11 +26,41 @@
             // limpando o visor
             document.getElementById("visor").value = "";
 
-            
         }
 
-        alert("leonardo esta mecendo no codigo");
+        function operacao(opcao) {
 
+            var a, b, res;
+
+            a = memoria;
+            b = document.getElementById("visor").value;
+
+            switch (opcao) {
+                case somar:
+                    res = a+b;
+                    break;
+
+                case subtrair:
+                    res = a+b;
+                    break;
+
+                case multiplicar:
+                    res = a+b;
+                    break;
+
+                case dividir:
+                res = a+b;
+                    break;
+                    
+            }
+
+            visor.value = parseInt(visor.value) + memoria
+        }
+
+        function limpar() {
+            memoria = 0;
+            document.getElementById("visor").value = "";
+        }
         
 
     </script>
@@ -35,7 +69,7 @@
 <body>  
     <h1>Calculadora Polonesa Básica</h1>
     
-    <input id="visor" type="text" name="visor" value=""><br>
+    <input id="visor" type="text" name="visor" value="" disabled><br>
 
     <input type="button" name="btn1" value="1" onclick="addVisor(1)">
     <input type="button" name="btn2" value="2" onclick="addVisor(2)">
@@ -47,12 +81,13 @@
     <input type="button" name="btn8" value="8" onclick="addVisor(8)">
     <input type="button" name="btn9" value="9" onclick="addVisor(9)"><br>
 
-    <input type="button" name="btn_mais" value="+">
-    <input type="button" name="btn_menos" value="-">
-    <input type="button" name="btn_vezes" value="*">
-    <input type="button" name="btn_dividir" value="/"><br>
+    <input type="button" name="btn_mais" value="+" onclick="operacao(somar)">
+    <input type="button" name="btn_menos" value="-" onclick="operacao(subtrair)">
+    <input type="button" name="btn_vezes" value="*" onclick="operacao(multiplicar)">
+    <input type="button" name="btn_dividir" value="/" onclick="operacao(dividir)"><br>
 
     <input type="button" name="btn_enter" value="Enter" onclick="enter()"><br>
+    <input type="button" name="btn_limpar" value="Limpar" onclick="limpar()"><br>
 
 
 </body>
