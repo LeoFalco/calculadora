@@ -26,7 +26,7 @@
 
         function enter(){
 
-            document.getElementById("resultado").value = document.getElementById("visor").value);
+            document.getElementById("visor2").value = document.getElementById("visor").value);
 
             // limpando o visor
             document.getElementById("visor").value = "";
@@ -67,14 +67,14 @@
             document.getElementById("visor").value = "";
         }
         
-
     </script>
 
 </head>
-<body>  
+<body>
+    
     <h1>Calculadora Polonesa Básica</h1>
     
-    <input id="resultado" type="text" name="resultado" value="" disabled><br>
+    <input id="visor2" type="text" name="resultado" value="" disabled><br>
     <input id="visor" type="text" name="visor" value="" disabled><br>
 
     <input type="button" name="btn1" value="1" onclick="addVisor(1)">
