@@ -1,0 +1,57 @@
+<!DODCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Polonesa básica</title>
+
+    <script>
+        var memoria = 0;
+
+
+        function addVisor(num) {
+
+            var visor = document.getElementById("visor");
+
+            visor.value += num;
+        }
+
+
+        function enter(){
+
+            memoria = parseInt(document.getElementById("visor").value);
+
+            // limpando o visor
+            document.getElementById("visor").value = "";
+
+            
+        }
+
+    </script>
+
+</head>
+<body>  
+    <h1>Calculadora Polonesa Básica</h1>
+    
+    <input id="visor" type="text" name="visor" value=""><br>
+
+    <input type="button" name="btn1" value="1" onclick="addVisor(1)">
+    <input type="button" name="btn2" value="2" onclick="addVisor(2)">
+    <input type="button" name="btn3" value="3" onclick="addVisor(3)"><br>
+    <input type="button" name="btn4" value="4" onclick="addVisor(4)">
+    <input type="button" name="btn5" value="5" onclick="addVisor(5)">
+    <input type="button" name="btn6" value="6" onclick="addVisor(6)"><br>
+    <input type="button" name="btn7" value="7" onclick="addVisor(7)">
+    <input type="button" name="btn8" value="8" onclick="addVisor(8)">
+    <input type="button" name="btn9" value="9" onclick="addVisor(9)"><br>
+
+    <input type="button" name="btn_mais" value="+">
+    <input type="button" name="btn_menos" value="-">
+    <input type="button" name="btn_vezes" value="*">
+    <input type="button" name="btn_dividir" value="/"><br>
+
+    <input type="button" name="btn_enter" value="Enter" onclick="enter()"><br>
+
+
+</body>
+</html>
+
