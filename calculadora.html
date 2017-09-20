@@ -12,24 +12,21 @@
         multiplicar = 3,
         dividir = 4;
 
-
-        function getVisor() {
-            return document.getElementById("visor");
+        function getVisor1() {
+            return document.getElementById("visor1");
+        }
+        
+        function getVisor2() {
+            return document.getElementById("visor2");
         }
 
         function addVisor(num) {
-
-            var visor = getVisor();
-
-            visor.value += num;
+            getVisor1().value += num;
         }
 
         function enter(){
-
-            document.getElementById("visor2").value = document.getElementById("visor").value);
-
-            // limpando o visor
-            document.getElementById("visor").value = "";
+            getVisor2().value = getVisor1().value;
+            getVisor1().value = "";
 
         }
 
@@ -37,8 +34,8 @@
 
             var a, b, res;
 
-            a = memoria;
-            b = document.getElementById("visor").value;
+            a = parseFloat(getVisor2().value);
+            b = parseFloat(getVisor1().value);
 
             switch (opcao) {
                 case somar:
@@ -46,36 +43,35 @@
                     break;
 
                 case subtrair:
-                    res = a+b;
+                    res = a-b;
                     break;
 
                 case multiplicar:
-                    res = a+b;
+                    res = a*b;
                     break;
 
                 case dividir:
-                res = a+b;
+                    res = a/b;
                     break;
                     
             }
 
-            visor.value = parseInt(visor.value) + memoria
+            getVisor2().value = res;
+            getVisor1().value = "";
         }
 
         function limpar() {
-            memoria = 0;
-            document.getElementById("visor").value = "";
+            getVisor1().value = "";
         }
         
     </script>
 
 </head>
 <body>
-    
     <h1>Calculadora Polonesa Básica</h1>
     
-    <input id="visor2" type="text" name="resultado" value="" disabled><br>
-    <input id="visor" type="text" name="visor" value="" disabled><br>
+    <p>memoria</p><input id="visor2" type="text" name="resultado" value="" disabled><br>
+    <p>visor </p><input id="visor1" type="text" name="visor" value="" disabled><br><br>
 
     <input type="button" name="btn1" value="1" onclick="addVisor(1)">
     <input type="button" name="btn2" value="2" onclick="addVisor(2)">
@@ -85,14 +81,14 @@
     <input type="button" name="btn6" value="6" onclick="addVisor(6)"><br>
     <input type="button" name="btn7" value="7" onclick="addVisor(7)">
     <input type="button" name="btn8" value="8" onclick="addVisor(8)">
-    <input type="button" name="btn9" value="9" onclick="addVisor(9)"><br>
+    <input type="button" name="btn9" value="9" onclick="addVisor(9)"><br><br>
 
     <input type="button" name="btn_mais" value="+" onclick="operacao(somar)">
     <input type="button" name="btn_menos" value="-" onclick="operacao(subtrair)">
     <input type="button" name="btn_vezes" value="*" onclick="operacao(multiplicar)">
-    <input type="button" name="btn_dividir" value="/" onclick="operacao(dividir)"><br>
+    <input type="button" name="btn_dividir" value="/" onclick="operacao(dividir)"><br><br>
 
-    <input type="button" name="btn_enter" value="Enter" onclick="enter()"><br>
+    <input type="button" name="btn_enter" value="Enter" onclick="enter()">
     <input type="button" name="btn_limpar" value="Limpar" onclick="limpar()"><br>
 
 
