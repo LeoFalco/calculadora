@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Calculadora Polonesa básica</title>
 
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            color: grey;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+        }
+    </style>
     <script>
         var memoria = 0;
 
@@ -71,8 +81,10 @@
 <body>
     <h1>Calculadora Polonesa Básica</h1>
     
-    <p>memoria</p><input id="visor2" type="text" name="resultado" value="" disabled><br>
-    <p>visor </p><input id="visor1" type="text" name="visor" value="" disabled><br><br>
+    <div>
+        <p>memoria</p><input id="visor2" type="text" name="resultado" value="" disabled><br>
+        <p>visor </p><input id="visor1" type="text" name="visor" value="" disabled><br><br>
+    </div>
 
     <input type="button" name="btn1" value="1" onclick="addVisor(1)">
     <input type="button" name="btn2" value="2" onclick="addVisor(2)">
