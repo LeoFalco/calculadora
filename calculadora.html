@@ -10,7 +10,6 @@
             font-size: 1em;
         }
         h1{
-            color: grey;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 1em;
         }
@@ -20,7 +19,8 @@
     <script>
         var memoria = 0;
 
-        var somar = 1,
+
+        const somar = 1,
         subtrair = 2,
         multiplicar = 3,
         dividir = 4;
@@ -47,8 +47,15 @@
 
             var a, b, res;
 
+            b = getVisor1().value;
+
+            // se visor 1 estiver vazio para a funcao
+            if (b == "") {
+                return;
+            }
+            b = parseFloat(b);
+
             a = parseFloat(getVisor2().value);
-            b = parseFloat(getVisor1().value);
 
             switch (opcao) {
                 case somar:
@@ -70,12 +77,13 @@
             }
 
             getVisor2().value = res;
-            getVisor1().value = "";
+            limpar(getVisor1());
         }
 
-        function limpar() {
-            getVisor1().value = "";
-            getVisor2().value = "";
+        function limpar(...visor) { // funcao q recebe uma quantidade n de parametros
+            for (var i = 0; i < visor.length; i++) {
+                visor[i].value = "";
+            }
         }
         
     </script>
@@ -89,16 +97,16 @@
         <p>visor </p><input id="visor1" type="text" name="visor" value="" disabled><br><br>
     </div>
 
-    <input type="button" name="btn1" value="1" onclick="addVisor(1)">
-    <input type="button" name="btn2" value="2" onclick="addVisor(2)">
-    <input type="button" name="btn3" value="3" onclick="addVisor(3)"><br>
-    <input type="button" name="btn4" value="4" onclick="addVisor(4)">
-    <input type="button" name="btn5" value="5" onclick="addVisor(5)">
-    <input type="button" name="btn6" value="6" onclick="addVisor(6)"><br>
-    <input type="button" name="btn7" value="7" onclick="addVisor(7)">
-    <input type="button" name="btn8" value="8" onclick="addVisor(8)">
-    <input type="button" name="btn9" value="9" onclick="addVisor(9)"><br>
-    <input type="button" name="btn0" value="0" onclick="addVisor(0)"><br><br>
+    <input type="button" name="btn1" value="1" onclick="addVisor(this.value)">
+    <input type="button" name="btn2" value="2" onclick="addVisor(this.value)">
+    <input type="button" name="btn3" value="3" onclick="addVisor(this.value)"><br>
+    <input type="button" name="btn4" value="4" onclick="addVisor(this.value)">
+    <input type="button" name="btn5" value="5" onclick="addVisor(this.value)">
+    <input type="button" name="btn6" value="6" onclick="addVisor(this.value)"><br>
+    <input type="button" name="btn7" value="7" onclick="addVisor(this.value)">
+    <input type="button" name="btn8" value="8" onclick="addVisor(this.value)">
+    <input type="button" name="btn9" value="9" onclick="addVisor(this.value)"><br>
+    <input type="button" name="btn0" value="0" onclick="addVisor(this.value)"><br><br>
 
     <input type="button" name="btn_mais" value="+" onclick="operacao(somar)">
     <input type="button" name="btn_menos" value="-" onclick="operacao(subtrair)">
@@ -106,7 +114,7 @@
     <input type="button" name="btn_dividir" value="/" onclick="operacao(dividir)"><br><br>
 
     <input type="button" name="btn_enter" value="Enter" onclick="enter()">
-    <input type="button" name="btn_limpar" value="Limpar" onclick="limpar()"><br>
+    <input type="button" name="btn_limpar" value="Limpar" onclick="limpar(getVisor1(),getVisor2())"><br>
 
 
 </body>
