@@ -1,9 +1,18 @@
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
+.my-btn{
+    margin: 2px;
+    width: 50px;
 }
 
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
+.my-btn-2{
+    margin: 2px;
+    width: 108px;
+}
+
+.visor{
+    width: 230px !important;
+    height: 40px;
+}
+
+.label{
+    margin: 0;
 }

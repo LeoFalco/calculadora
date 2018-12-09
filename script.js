@@ -20,19 +20,25 @@ function enter() {
     visor1.value = "";
 }
 
+function trocaSinal() {
+
+    if(visor2.value === '') return;
+
+    visor2.value = -visor2.value;
+}
+
 function calcular(opcao) {
 
     var a, b, res;
 
     b = visor1.value;
+    a = visor2.value;
 
-    // se visor 1 estiver vazio para a funcao
-    if (b === "") {
-        return;
-    }
+    // se os visores estiverem vazios para a funcao
+    if (a === '' || b === '') return;
 
     b = parseFloat(b);
-    a = parseFloat(visor2.value);
+    a = parseFloat(a);
 
     switch (opcao) {
         case operacao.SOMAR:
@@ -50,7 +56,6 @@ function calcular(opcao) {
         case operacao.DIVIDIR:
             res = a / b;
             break;
-
     }
 
     visor2.value = res;
