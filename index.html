@@ -4,97 +4,14 @@
     <meta charset="UTF-8">
     <title>Calculadora Polonesa básica</title>
 
-    <style>
-        *{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 1em;
-        }
-        h1{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 1em;
-        }
-
-
-    </style>
-    <script>
-        var memoria = 0;
-
-
-        const somar = 1,
-        subtrair = 2,
-        multiplicar = 3,
-        dividir = 4;
-
-        function getVisor1() {
-            return document.getElementById("visor1");
-        }
-        
-        function getVisor2() {
-            return document.getElementById("visor2");
-        }
-
-        function addVisor(num) {
-            getVisor1().value += num;
-        }
-
-        function enter(){
-            getVisor2().value = getVisor1().value;
-            getVisor1().value = "";
-
-        }
-
-        function operacao(opcao) {
-
-            var a, b, res;
-
-            b = getVisor1().value;
-
-            // se visor 1 estiver vazio para a funcao
-            if (b == "") {
-                return;
-            }
-            b = parseFloat(b);
-
-            a = parseFloat(getVisor2().value);
-
-            switch (opcao) {
-                case somar:
-                    res = a+b;
-                    break;
-
-                case subtrair:
-                    res = a-b;
-                    break;
-
-                case multiplicar:
-                    res = a*b;
-                    break;
-
-                case dividir:
-                    res = a/b;
-                    break;
-                    
-            }
-
-            getVisor2().value = res;
-            limpar(getVisor1());
-        }
-
-        function limpar(...visor) { // funcao q recebe uma quantidade n de parametros
-            for (var i = 0; i < visor.length; i++) {
-                visor[i].value = "";
-            }
-        }
-        
-    </script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Calculadora Polonesa Básica</h1>
-    
+
     <div>
-        <p>memoria</p><input id="visor2" type="text" name="resultado" value="" disabled><br>
-        <p>visor </p><input id="visor1" type="text" name="visor" value="" disabled><br><br>
+        <p>memoria</p><input title="Visor 2" id="visor2" type="text" name="resultado" value="" disabled><br>
+        <p>visor </p><input title="Visor 1" id="visor1" type="text" name="visor" value="" disabled><br><br>
     </div>
 
     <input type="button" name="btn1" value="1" onclick="addVisor(this.value)">
@@ -108,15 +25,15 @@
     <input type="button" name="btn9" value="9" onclick="addVisor(this.value)"><br>
     <input type="button" name="btn0" value="0" onclick="addVisor(this.value)"><br><br>
 
-    <input type="button" name="btn_mais" value="+" onclick="operacao(somar)">
-    <input type="button" name="btn_menos" value="-" onclick="operacao(subtrair)">
-    <input type="button" name="btn_vezes" value="*" onclick="operacao(multiplicar)">
-    <input type="button" name="btn_dividir" value="/" onclick="operacao(dividir)"><br><br>
+    <input type="button" name="btn_mais" value="+" onclick="calcular(operacao.SOMAR)">
+    <input type="button" name="btn_menos" value="-" onclick="calcular(operacao.SUBTRAIR)">
+    <input type="button" name="btn_vezes" value="*" onclick="calcular(operacao.MULTIPLICAR)">
+    <input type="button" name="btn_dividir" value="/" onclick="calcular(operacao.DIVIDIR)"><br><br>
 
     <input type="button" name="btn_enter" value="Enter" onclick="enter()">
-    <input type="button" name="btn_limpar" value="Limpar" onclick="limpar(getVisor1(),getVisor2())"><br>
+    <input type="button" name="btn_limpar" value="Limpar" onclick="limpar(visor1,visor2)"><br>
 
-
+    <script src="script.js"></script>
 </body>
 </html>
 
