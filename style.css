@@ -5,14 +5,37 @@
 
 .my-btn-2{
     margin: 2px;
-    width: 108px;
+    width: 104px;
 }
 
 .visor{
-    width: 230px !important;
+    width: 214px !important;
     height: 40px;
 }
 
 .label{
     margin: 0;
+}
+
+.label-visor {
+    margin: -10px 0 0 25px;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #cccccc;
+    font-size: .8rem;
+
+}
+
+.row-visor {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
 }

@@ -22,9 +22,9 @@ function enter() {
 
 function trocaSinal() {
 
-    if(visor2.value === '') return;
+    if(visor1.value === '') return;
 
-    visor2.value = -visor2.value;
+    visor1.value = -visor1.value;
 }
 
 function calcular(opcao) {

@@ -1,54 +1,90 @@
 <!DODCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Calculadora Polonesa básica</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
-<body>
-<div class="container-fluid" style="padding: 0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Calculadora polonesa básica</a>
-    </nav>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4" style="padding-top: 5%">
-            <label>Resultado</label><br>
-            <input class="visor form-control" title="Visor 2" id="visor2" type="text" name="resultado" value="" disabled>
-            <br>
-            <label>Input</label><br>
-            <input class="visor form-control" style="margin-bottom: 2px" title="Visor 1" id="visor1" type="text" name="visor" value="" disabled>
-            <br>
-            <input class="btn my-btn" type="button" name="btn1" value="1" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn2" value="2" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn3" value="3" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn_dividir" value="/" onclick="calcular(operacao.DIVIDIR)">
-            <br>
-            <input class="btn my-btn" type="button" name="btn4" value="4" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn5" value="5" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn6" value="6" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn_vezes" value="*" onclick="calcular(operacao.MULTIPLICAR)">
-            <br>
-            <input class="btn my-btn" type="button" name="btn7" value="7" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn8" value="8" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn9" value="9" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn_menos" value="-" onclick="calcular(operacao.SUBTRAIR)">
-            <br>
-            <input class="btn my-btn" type="button" name="btnSinal" value="+-" onclick="trocaSinal()">
-            <input class="btn my-btn" type="button" name="btn0" value="0" onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btnPonto" value="." onclick="addVisor(this.value)">
-            <input class="btn my-btn" type="button" name="btn_mais" value="+" onclick="calcular(operacao.SOMAR)">
-            <br>
-            <input class="btn my-btn-2" type="button" name="btn_limpar" value="Limpar" onclick="limpar(visor1,visor2)">
-            <input class="btn my-btn-2" type="button" name="btn_enter" value="Enter" onclick="enter()"><br>
-        </div>
-    </div>
-</div>
-<script src="script.js"></script>
-</body>
-</html>
+    <html>
 
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora Polonesa básica</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Calculadora polonesa básica</a>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row row-visor">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <div class="d-flex justify-content-start">
+                        <label class="label-visor">Resultado</label>
+                        <div class="col-md-12 ">
+                            <input class="visor form-control" title="Visor 2" id="visor2" type="text" name="resultado"
+                                value="" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-visor">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <div class="d-flex justify-content-start">
+                        <label class="label-visor">Input</label>
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <input class="visor form-control" title="Visor 1" id="visor1" type="text" name="visor"
+                                value="" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <input class="btn my-btn" type="button" name="btn1" value="1" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn2" value="2" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn3" value="3" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn_dividir" value="/"
+                        onclick="calcular(operacao.DIVIDIR)">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <input class="btn my-btn" type="button" name="btn4" value="4" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn5" value="5" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn6" value="6" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn_vezes" value="*"
+                        onclick="calcular(operacao.MULTIPLICAR)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <input class="btn my-btn" type="button" name="btn7" value="7" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn8" value="8" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn9" value="9" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn_menos" value="-"
+                        onclick="calcular(operacao.SUBTRAIR)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <input class="btn my-btn" type="button" name="btnSinal" value="+-" onclick="trocaSinal()">
+                    <input class="btn my-btn" type="button" name="btn0" value="0" onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btnPonto" value="." onclick="addVisor(this.value)">
+                    <input class="btn my-btn" type="button" name="btn_mais" value="+"
+                        onclick="calcular(operacao.SOMAR)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <input class="btn my-btn-2" type="button" name="btn_limpar" value="Limpar"
+                        onclick="limpar(visor1,visor2)">
+                    <input class="btn my-btn-2" type="button" name="btn_enter" value="Enter" onclick="enter()">
+                </div>
+            </div>
+
+            <script src="script.js"></script>
+    </body>
+
+    </html>
